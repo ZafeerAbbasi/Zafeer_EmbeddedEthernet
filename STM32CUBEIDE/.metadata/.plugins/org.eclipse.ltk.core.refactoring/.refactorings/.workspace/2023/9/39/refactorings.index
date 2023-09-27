@@ -1,0 +1,7 @@
+1695535311346	Delete resource 'testproject'
+1695608013340	Delete resource '00_BaseProject/Startup/beast.h'
+1695608109653	Delete resource '00_BaseProject/Core/Src/system_stm32h7xx.c'
+1695608158093	Delete resource '00_BaseProject/Core/Inc/stm32h7xx_hal_conf.h'
+1695627209270	Delete resource '00_BaseProject/Drivers/CMSIS/Device/ST/STM32H7xx/Include'
+1695689939497	Delete resource 'testproject'
+1695704768955	Delete resource '00_BaseProject/Startup'

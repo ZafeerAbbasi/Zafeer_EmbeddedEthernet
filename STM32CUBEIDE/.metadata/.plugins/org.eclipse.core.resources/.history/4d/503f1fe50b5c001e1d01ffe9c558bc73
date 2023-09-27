@@ -1,0 +1,137 @@
+/*
+ * stm32h7xx_hal_conf.h
+ *
+ *  Created on: Sep 24, 2023
+ *      Author: zafee
+ */
+
+#ifndef INC_STM32H7XX_HAL_CONF_H_
+#define INC_STM32H7XX_HAL_CONF_H_
+
+#define HAL_MODULE_ENABLED
+#define HAL_ADC_MODULE_ENABLED
+#define HAL_ETH_MODULE_ENABLED
+
+#define HAL_TIM_MODULE_ENABLED
+#define HAL_UART_MODULE_ENABLED
+
+#define HAL_GPIO_MODULE_ENABLED
+#define HAL_EXTI_MODULE_ENABLED
+#define HAL_DMA_MODULE_ENABLED
+#define HAL_RCC_MODULE_ENABLED
+#define HAL_FLASH_MODULE_ENABLED
+#define HAL_PWR_MODULE_ENABLED
+#define HAL_I2C_MODULE_ENABLED
+#define HAL_CORTEX_MODULE_ENABLED
+
+
+/* ########################## Oscillator Values adaptation ####################*/
+/**
+  * @brief Adjust the value of External High Speed oscillator (HSE) used in your application.
+  *        This value is used by the RCC HAL module to compute the system frequency
+  *        (when HSE is used as system clock source, directly or through the PLL).
+  */
+#if !defined  (HSE_VALUE)
+#define HSE_VALUE    (8000000UL) /*!< Value of the External oscillator in Hz : FPGA case fixed to 60MHZ */
+#endif /* HSE_VALUE */
+
+#if !defined  (HSE_STARTUP_TIMEOUT)
+  #define HSE_STARTUP_TIMEOUT    (100UL)   /*!< Time out for HSE start up, in ms */
+#endif /* HSE_STARTUP_TIMEOUT */
+
+/**
+  * @brief Internal  oscillator (CSI) default value.
+  *        This value is the default CSI value after Reset.
+  */
+#if !defined  (CSI_VALUE)
+  #define CSI_VALUE    (4000000UL) /*!< Value of the Internal oscillator in Hz*/
+#endif /* CSI_VALUE */
+
+/**
+  * @brief Internal High Speed oscillator (HSI) value.
+  *        This value is used by the RCC HAL module to compute the system frequency
+  *        (when HSI is used as system clock source, directly or through the PLL).
+  */
+#if !defined  (HSI_VALUE)
+  #define HSI_VALUE    (64000000UL) /*!< Value of the Internal oscillator in Hz*/
+#endif /* HSI_VALUE */
+
+/**
+  * @brief External Low Speed oscillator (LSE) value.
+  *        This value is used by the UART, RTC HAL module to compute the system frequency
+  */
+#if !defined  (LSE_VALUE)
+  #define LSE_VALUE    (32768UL) /*!< Value of the External oscillator in Hz*/
+#endif /* LSE_VALUE */
+
+#if !defined  (LSE_STARTUP_TIMEOUT)
+  #define LSE_STARTUP_TIMEOUT    (5000UL)   /*!< Time out for LSE start up, in ms */
+#endif /* LSE_STARTUP_TIMEOUT */
+
+#if !defined  (LSI_VALUE)
+  #define LSI_VALUE  (32000UL)              /*!< LSI Typical Value in Hz*/
+#endif /* LSI_VALUE */                      /*!< Value of the Internal Low Speed oscillator in Hz
+                                              The real value may vary depending on the variations
+                                              in voltage and temperature.*/
+
+/**
+  * @brief External clock source for I2S peripheral
+  *        This value is used by the I2S HAL module to compute the I2S clock source
+  *        frequency, this source is inserted directly through I2S_CKIN pad.
+  */
+#if !defined  (EXTERNAL_CLOCK_VALUE)
+  #define EXTERNAL_CLOCK_VALUE    12288000UL /*!< Value of the External clock in Hz*/
+#endif /* EXTERNAL_CLOCK_VALUE */
+
+#define  TICK_INT_PRIORITY            (0UL) /*!< tick interrupt priority */
+
+
+/*ETHERNET PHY MEMORY ADDRESSES--------------------------------------------------------------------------------------------------------------------------*/
+/*Note: PHY Stands for Physical Layer, and the device we are using, which is our PHY, is LAN8742 */
+
+#define LAN8742_BCR      ((uint16_t)0x0000U)    /*Basic Control Register*/
+#define LAN8742_BSR      ((uint16_t)0x0001U)    /*Basic Status Register*/
+
+/*SCR----------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*Reset Bit of the SCR, 1 = Sofware Reset, bit is self clearing, When settting this bit do not set other bits in the SCR Register*/
+#define LAN8742_BCR_SOFT_RESET         ((uint16_t)0x8000U)
+
+/*Loopback Mode Bit of SCR, 0 = Normal Operation, 1 = LoopBack mode*/
+#define LAN8742_BCR_LOOPBACK           ((uint16_t)0x4000U) 
+
+/*Speed Select, 0 = 10Mbps, 1 = 100Mbps*/
+#define LAN8742_BCR_SPEED_SELECT       ((uint16_t)0x2000U)
+
+/*Auto-Negotiation Enable*/
+#define LAN8742_BCR_AUTONEGO_EN        ((uint16_t)0x1000U)
+
+/*Power Down, 0 = Normal Operation, 1 = General Power Down Mode*/
+#define LAN8742_BCR_POWER_DOWN         ((uint16_t)0x0800U)
+
+/*Isolate, 0 = Normal Operation, 1 = Electrical Isolation of PHY from the RMII*/
+#define LAN8742_BCR_ISOLATE            ((uint16_t)0x0400U)
+
+/*Restart Auto-Negotiate, 0 = Normal Operation, 1 = Restart Auto-Negotiate Process*/
+#define LAN8742_BCR_RESTART_AUTONEGO   ((uint16_t)0x0200U)
+
+/*Duplex Mode, 0 = Half Duplex, 1 = Full Duplex*/
+#define LAN8742_BCR_DUPLEX_MODE        ((uint16_t)0x0100U) 
+
+/*SCR Shortcuts------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Full Duplex @ 100Mbps*/
+#define LAN8742_BCR_FULLDUPLEX_100     ((uint16_t)0x2100U) 
+
+/*Half Duplex @ 100Mbps*/
+#define LAN8742_BCR_HALFDUPLEX_100     ((uint16_t)0x2000U)
+
+/*Full Duplex @ 10Mbps*/
+#define LAN8742_BCR_FULLDUPLEX_10M     ((uint16_t)0x0100U) 
+
+/*Half Duplex @ 10Mbps*/
+#define LAN8742_BCR_HALFDUPLEX_10M     ((uint16_t)0x0000U)  
+
+
+
+#endif /* INC_STM32H7XX_HAL_CONF_H_ */
+
