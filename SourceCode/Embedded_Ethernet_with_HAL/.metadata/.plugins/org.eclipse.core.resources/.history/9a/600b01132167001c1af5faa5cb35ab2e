@@ -1,0 +1,24 @@
+#include "cgi_process.h"
+#include <string.h>
+#include <stdio.h>
+#include "lwip/apps/httpd.h"
+
+
+
+const char * led_cgi_handler(int iIndex, int iNumParams, char *pcParam[],char *pcValue[]);
+const tCGI LED_CGI ={"/leds.cgi",led_cgi_handler};
+
+tCGI CGI_ARR[NUM_OF_CGIS];
+
+const char * led_cgi_handler(int iIndex, int iNumParams, char *pcParam[],char *pcValue[])
+{
+	if(iIndex == 0)
+	{
+		led_off(GREEN_LED);
+		led_off(BLUE_LED);
+		led_off(RED_LED);
+		led_off(CUSTOM_LED);
+
+
+	}
+}

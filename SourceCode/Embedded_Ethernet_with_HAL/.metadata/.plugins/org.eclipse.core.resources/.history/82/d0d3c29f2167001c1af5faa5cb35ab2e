@@ -1,0 +1,51 @@
+#include "cgi_process.h"
+#include <string.h>
+#include <stdio.h>
+#include "lwip/apps/httpd.h"
+
+
+
+const char * led_cgi_handler(int iIndex, int iNumParams, char *pcParam[],char *pcValue[]);
+const tCGI LED_CGI ={"/leds.cgi",led_cgi_handler};
+
+tCGI CGI_ARR[NUM_OF_CGIS];
+
+const char * led_cgi_handler(int iIndex, int iNumParams, char *pcParam[],char *pcValue[])
+{
+	if(iIndex == 0)
+	{
+		led_off(GREEN_LED);
+		led_off(BLUE_LED);
+		led_off(RED_LED);
+		led_off(CUSTOM_LED);
+	}
+
+	for(int i = 0;  i < iNumParams; i++)
+	{
+		if(strcmp(pcParam[i],"led") == 0)
+		{
+			if(strcmp(pcValue[i],"1") == 0)
+			{
+				led_on(GREEN_LED);
+				printf("Green Led is On!!");
+			}
+
+			else if(strcmp(pcValue[i],"2") == 0)
+			{
+				led_on(BLUE_LED);
+				printf("Blue Led is On!!");
+			}
+
+			else if(strcmp(pcValue[i],"3") == 0)
+			{
+				led_on(RED_LED);
+				printf("Red Led is On!!");
+			}
+			else if(strcmp(pcValue[i],"4") == 0)
+			{
+				led_on(CUSTOM_LED);
+				printf("Custom Led is On!!");
+			}
+		}
+	}
+}

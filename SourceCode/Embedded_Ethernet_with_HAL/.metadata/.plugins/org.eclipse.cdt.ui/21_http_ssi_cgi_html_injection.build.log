@@ -1,0 +1,10 @@
+15:32:03 **** Incremental Build of configuration Debug for project 21_http_ssi_cgi_html_injection ****
+make -j3 all 
+arm-none-eabi-size   21_http_ssi_cgi_html_injection.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 304228	    164	  33020	 337412	  52604	21_http_ssi_cgi_html_injection.elf
+Finished building: default.size.stdout
+ 
+
+15:32:06 Build Finished. 0 errors, 0 warnings. (took 3s.82ms)
+

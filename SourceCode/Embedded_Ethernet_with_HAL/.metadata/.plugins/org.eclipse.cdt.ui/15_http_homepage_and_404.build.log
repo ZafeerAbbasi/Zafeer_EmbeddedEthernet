@@ -1,0 +1,10 @@
+10:09:37 **** Incremental Build of configuration Debug for project 15_http_homepage_and_404 ****
+make -j3 all 
+arm-none-eabi-size   15_http_homepage_and_404.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 153780	    132	  32996	 186908	  2da1c	15_http_homepage_and_404.elf
+Finished building: default.size.stdout
+ 
+
+10:09:37 Build Finished. 0 errors, 0 warnings. (took 797ms)
+

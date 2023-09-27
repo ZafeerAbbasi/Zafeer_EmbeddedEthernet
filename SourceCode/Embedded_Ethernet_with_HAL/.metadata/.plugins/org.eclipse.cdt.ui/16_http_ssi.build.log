@@ -1,0 +1,10 @@
+11:29:47 **** Incremental Build of configuration Debug for project 16_http_ssi ****
+make -j3 all 
+arm-none-eabi-size   16_http_ssi.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 200436	    140	  33012	 233588	  39074	16_http_ssi.elf
+Finished building: default.size.stdout
+ 
+
+11:29:49 Build Finished. 0 errors, 0 warnings. (took 2s.665ms)
+

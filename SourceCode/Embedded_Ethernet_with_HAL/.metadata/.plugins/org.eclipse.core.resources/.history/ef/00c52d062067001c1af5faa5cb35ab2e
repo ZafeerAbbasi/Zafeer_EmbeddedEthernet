@@ -1,0 +1,6 @@
+#include "cgi_process.h"
+#include <string.h>
+#include <stdio.h>
+#include "lwip/apps/httpd.h"
+
+

@@ -1,0 +1,4 @@
+ethernetif.c:26:6:HAL_ETH_MspInit	64	static
+ethernetif.c:92:13:low_level_init	32	static
+ethernetif.c:165:14:low_level_output	48	static
+ethernetif.c:256:13:process_error	4	static

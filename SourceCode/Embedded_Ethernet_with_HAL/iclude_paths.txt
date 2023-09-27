@@ -1,0 +1,17 @@
+${ProjDirPath}\Middlewares\Third_Party\LwIP\src\apps
+${ProjDirPath}\Middlewares\Third_Party\LwIP\src\include\lwip\apps
+${ProjDirPath}\Middlewares\Third_Party\LwIP\src\include\lwip
+${ProjDirPath}\Middlewares\Third_Party\LwIP\system\arch
+${ProjDirPath}\Middlewares\Third_Party\LwIP\src\include\netif
+${ProjDirPath}\Middlewares\Third_Party\LwIP\src\include\lwip\prot
+${ProjDirPath}\Middlewares\Third_Party\LwIP\src\include\lwip\priv
+${ProjDirPath}\Middlewares\Third_Party\LwIP\src\apps\http
+${ProjDirPath}\Core\Inc
+${ProjDirPath}\Drivers\CMSIS\Include
+${ProjDirPath}\Drivers\CMSIS\Device\ST\STM32F7xx\Include
+${ProjDirPath}\Drivers\STM32F7xx_HAL_Driver\Inc
+${ProjDirPath}\Drivers\STM32F7xx_HAL_Driver\Inc\Legacy
+${ProjDirPath}\LWIP\App
+${ProjDirPath}\LWIP\Target
+${ProjDirPath}\Middlewares\Third_Party\LwIP\src\include
+${ProjDirPath}\Middlewares\Third_Party\LwIP\system

@@ -1,0 +1,8 @@
+ethernetif.c:29:6:HAL_ETH_MspInit	64	static
+ethernetif.c:95:13:low_level_init	32	static
+ethernetif.c:168:14:low_level_output	48	static
+ethernetif.c:259:13:process_error	4	static
+ethernetif.c:275:22:low_level_input	56	static
+ethernetif.c:384:6:ethernetif_input	24	static
+ethernetif.c:409:7:sys_now	8	static
+ethernetif.c:416:7:ethernetif_init	16	static

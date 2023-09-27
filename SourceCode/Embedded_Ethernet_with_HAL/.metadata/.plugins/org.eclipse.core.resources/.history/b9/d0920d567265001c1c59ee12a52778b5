@@ -1,0 +1,10 @@
+#ifndef __LWIP_H__
+#define __LWIP_H__
+
+#include "main.h"
+#include "ethernetif.h"
+#include "lwip/dhcp.h"
+
+
+
+#endif

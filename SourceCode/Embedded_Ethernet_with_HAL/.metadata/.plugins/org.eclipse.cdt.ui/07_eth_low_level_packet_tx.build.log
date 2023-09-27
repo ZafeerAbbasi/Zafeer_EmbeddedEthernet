@@ -1,0 +1,26 @@
+10:26:24 **** Incremental Build of configuration Debug for project 07_eth_low_level_packet_tx ****
+make -j3 all 
+arm-none-eabi-gcc "../LWIP/Target/ethernetif.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F767xx -c -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Middlewares/Third_Party/LwIP/src/apps" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Middlewares/Third_Party/LwIP/src/include/lwip" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Middlewares/Third_Party/LwIP/system/arch" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Middlewares/Third_Party/LwIP/src/include/netif" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Middlewares/Third_Party/LwIP/src/apps/http" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Core/Inc" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Drivers/CMSIS/Include" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Drivers/STM32F7xx_HAL_Driver/Inc" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/LWIP/App" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/LWIP/Target" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Middlewares/Third_Party/LwIP/src/include" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/07_eth_low_level_packet_tx/Middlewares/Third_Party/LwIP/system" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"LWIP/Target/ethernetif.d" -MT"LWIP/Target/ethernetif.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "LWIP/Target/ethernetif.o"
+../LWIP/Target/ethernetif.c:165:14: warning: 'low_level_output' defined but not used [-Wunused-function]
+  165 | static err_t low_level_output(struct netif *netif, struct pbuf *p)
+      |              ^~~~~~~~~~~~~~~~
+../LWIP/Target/ethernetif.c:92:13: warning: 'low_level_init' defined but not used [-Wunused-function]
+   92 | static void low_level_init(struct netif *netif)
+      |             ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "07_eth_low_level_packet_tx.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Israel\Documents\Embedded_Ethernet_with_HAL\07_eth_low_level_packet_tx\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="07_eth_low_level_packet_tx.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 07_eth_low_level_packet_tx.elf
+ 
+arm-none-eabi-size   07_eth_low_level_packet_tx.elf 
+arm-none-eabi-objdump -h -S  07_eth_low_level_packet_tx.elf  > "07_eth_low_level_packet_tx.list"
+arm-none-eabi-objcopy  -O binary  07_eth_low_level_packet_tx.elf  "07_eth_low_level_packet_tx.bin"
+   text	   data	    bss	    dec	    hex	filename
+  15648	    120	  17448	  33216	   81c0	07_eth_low_level_packet_tx.elf
+Finished building: default.size.stdout
+ 
+Finished building: 07_eth_low_level_packet_tx.bin
+ 
+Finished building: 07_eth_low_level_packet_tx.list
+ 
+
+10:26:33 Build Finished. 0 errors, 2 warnings. (took 8s.608ms)
+

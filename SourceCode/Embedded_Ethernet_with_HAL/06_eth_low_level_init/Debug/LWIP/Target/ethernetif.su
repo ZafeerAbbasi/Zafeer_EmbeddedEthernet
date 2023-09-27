@@ -1,0 +1,2 @@
+ethernetif.c:22:6:HAL_ETH_MspInit	64	static
+ethernetif.c:88:13:low_level_init	32	static

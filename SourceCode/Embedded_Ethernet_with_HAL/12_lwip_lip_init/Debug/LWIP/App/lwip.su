@@ -1,0 +1,2 @@
+lwip.c:16:6:lwip_lib_init	24	static
+lwip.c:74:6:lwip_process	8	static

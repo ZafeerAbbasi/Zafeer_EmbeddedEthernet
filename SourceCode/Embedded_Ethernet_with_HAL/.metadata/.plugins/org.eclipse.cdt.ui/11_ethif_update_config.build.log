@@ -1,0 +1,20 @@
+09:56:32 **** Incremental Build of configuration Debug for project 11_ethif_update_config ****
+make -j3 all 
+arm-none-eabi-gcc "../LWIP/Target/ethernetif.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F767xx -c -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Middlewares/Third_Party/LwIP/src/apps" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Middlewares/Third_Party/LwIP/src/include/lwip" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Middlewares/Third_Party/LwIP/system/arch" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Middlewares/Third_Party/LwIP/src/include/netif" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Middlewares/Third_Party/LwIP/src/apps/http" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Core/Inc" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Drivers/CMSIS/Include" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Drivers/STM32F7xx_HAL_Driver/Inc" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/LWIP/App" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/LWIP/Target" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Middlewares/Third_Party/LwIP/src/include" -I"C:/Users/Israel/Documents/Embedded_Ethernet_with_HAL/11_ethif_update_config/Middlewares/Third_Party/LwIP/system" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"LWIP/Target/ethernetif.d" -MT"LWIP/Target/ethernetif.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "LWIP/Target/ethernetif.o"
+arm-none-eabi-gcc -o "11_ethif_update_config.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Israel\Documents\Embedded_Ethernet_with_HAL\11_ethif_update_config\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="11_ethif_update_config.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 11_ethif_update_config.elf
+ 
+arm-none-eabi-objdump -h -S  11_ethif_update_config.elf  > "11_ethif_update_config.list"
+arm-none-eabi-objcopy  -O binary  11_ethif_update_config.elf  "11_ethif_update_config.bin"
+arm-none-eabi-size   11_ethif_update_config.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15648	    120	  17448	  33216	   81c0	11_ethif_update_config.elf
+Finished building: default.size.stdout
+ 
+Finished building: 11_ethif_update_config.bin
+ 
+Finished building: 11_ethif_update_config.list
+ 
+
+09:56:37 Build Finished. 0 errors, 0 warnings. (took 4s.764ms)
+

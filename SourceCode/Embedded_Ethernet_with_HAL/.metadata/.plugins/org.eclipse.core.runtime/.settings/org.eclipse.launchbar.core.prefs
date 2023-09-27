@@ -1,0 +1,10 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:01_clock_config,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:02_leds_config,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:03_uart_config,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:04_adc_config,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:13_link_change,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:14_Dynamic_IP_Addr,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:15_http_homepage_and_404,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:16_http_ssi,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:17_http_multiple_ssi_tags,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:18_http_ssi_3_pages,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:19_http_ssi_all_modules_in_one_page,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:20_http_ssi_cgi_led_control,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:21_http_ssi_cgi_html_injection,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:22_http_ssi_cgi_html_injection-MoreTags
+eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:01_clock_config/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:01_clock_config/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:02_leds_config/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:03_uart_config/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:04_adc_config/activeLaunchMode=run

@@ -1,0 +1,10 @@
+09:45:15 **** Incremental Build of configuration Debug for project 14_Dynamic_IP_Addr ****
+make -j3 all 
+arm-none-eabi-size   14_Dynamic_IP_Addr.elf 
+   text	   data	    bss	    dec	    hex	filename
+  85400	    132	  31908	 117440	  1cac0	14_Dynamic_IP_Addr.elf
+Finished building: default.size.stdout
+ 
+
+09:45:16 Build Finished. 0 errors, 0 warnings. (took 1s.314ms)
+

@@ -1,0 +1,202 @@
+#include "cgi_process.h"
+#include <string.h>
+#include <stdio.h>
+#include "lwip/apps/httpd.h"
+#include "button.h"
+#include <stdbool.h>
+
+char const * ssi_tags[] = {"TIME","SENSOR","BUTTON","RLED","BLED","GLED","LED4","RBULB","BBULB","GBULB","CBULB"};
+char const ** tags =  ssi_tags;
+extern ADC_HandleTypeDef hadc1;
+
+
+const char * led_cgi_handler(int iIndex, int iNumParams, char *pcParam[],char *pcValue[]);
+const tCGI LED_CGI ={"/leds.cgi",led_cgi_handler};
+
+tCGI CGI_ARR[NUM_OF_CGIS];
+
+bool red_on, green_on, blue_on, custom_led_on;
+
+uint16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen)
+{
+
+	switch(iIndex)
+	{
+		case 0:
+			sprintf(pcInsert, "%d", (int)HAL_GetTick());
+			return strlen(pcInsert);
+			break;
+
+		case 1:
+			sprintf(pcInsert, "%d", (int)HAL_ADC_GetValue(&hadc1));
+			return strlen(pcInsert);
+			break;
+
+		case 2:
+			sprintf(pcInsert, "%d", (int)get_btn_state());
+			return strlen(pcInsert);
+			break;
+
+		case 3:
+			if (red_on ==  true)
+			{
+				sprintf(pcInsert,"<input value=\"1\" name=\"led\" class=\"largerCheckbox\" type=\"checkbox\" checked>");
+				return strlen(pcInsert);
+			}
+			else
+			{
+				sprintf(pcInsert,"<input value=\"1\" name=\"led\" class=\"largerCheckbox\"  type=\"checkbox\">");
+				return strlen(pcInsert);
+
+			}
+			break;
+
+		case 4:
+			if(blue_on == true)
+			{
+				sprintf(pcInsert,"<input value=\"2\" name=\"led\" class=\"largerCheckbox\" type=\"checkbox\" checked>");
+				return strlen(pcInsert);
+			}
+			else
+			{
+				sprintf(pcInsert,"<input value=\"2\" name=\"led\" class=\"largerCheckbox\"  type=\"checkbox\">");
+				return strlen(pcInsert);
+
+			}
+			break;
+
+		case 5:
+			if(green_on == true)
+			{
+				sprintf(pcInsert,"<input value=\"3\" name=\"led\" class=\"largerCheckbox\" type=\"checkbox\" checked>");
+				return strlen(pcInsert);
+			}
+			else
+			{
+				sprintf(pcInsert,"<input value=\"3\" name=\"led\" class=\"largerCheckbox\"  type=\"checkbox\">");
+				return strlen(pcInsert);
+
+			}
+			break;
+
+		case 6:
+			if(custom_led_on == true)
+			{
+				sprintf(pcInsert,"<input value=\"4\" name=\"led\" class=\"largerCheckbox\" type=\"checkbox\" checked>");
+				return strlen(pcInsert);
+			}
+			else
+			{
+				sprintf(pcInsert,"<input value=\"4\" name=\"led\" class=\"largerCheckbox\"  type=\"checkbox\">");
+				return strlen(pcInsert);
+
+			}
+			break;
+		case 7:
+			if (red_on ==  true)
+			{
+				sprintf(pcInsert,"<img class=\"image\" src=\"redon.png\" height= \"200\" width= \"200\" border=\"0\">");
+				return strlen(pcInsert);
+			}
+			else
+			{
+				sprintf(pcInsert,"<img class=\"image\" src=\"lightoff.png\" height= \"200\" width= \"200\" border=\"0\">");
+				return strlen(pcInsert);
+			}
+			break;
+
+		case 8:
+			if (blue_on ==  true)
+			{
+				sprintf(pcInsert,"<img class=\"image\" src=\"blueon.png\" height= \"200\" width= \"200\" border=\"0\">");
+				return strlen(pcInsert);
+			}
+			else
+			{
+				sprintf(pcInsert,"<img class=\"image\" src=\"lightoff.png\" height= \"200\" width= \"200\" border=\"0\">");
+				return strlen(pcInsert);
+			}
+			break;
+
+		case 9:
+			if (green_on ==  true)
+			{
+				sprintf(pcInsert,"<img class=\"image\" src=\"greenon.png\" height= \"200\" width= \"200\" border=\"0\">");
+				return strlen(pcInsert);
+			}
+			else
+			{
+				sprintf(pcInsert,"<img class=\"image\" src=\"lightoff.png\" height= \"200\" width= \"200\" border=\"0\">");
+				return strlen(pcInsert);
+			}
+			break;
+
+		case 10:
+			if (custom_led_on ==  true)
+			{
+				sprintf(pcInsert,"<img class=\"image\" src=\"yellowon.png\" height= \"200\" width= \"200\" border=\"0\">");
+				return strlen(pcInsert);
+			}
+			else
+			{
+				sprintf(pcInsert,"<img class=\"image\" src=\"lightoff.png\" height= \"200\" width= \"200\" border=\"0\">");
+				return strlen(pcInsert);
+			}
+			break;
+
+		default:
+			break;
+
+	}
+   return 0;
+}
+
+
+
+const char * led_cgi_handler(int iIndex, int iNumParams, char *pcParam[],char *pcValue[])
+{
+	if(iIndex == 0)
+	{
+		led_off(GREEN_LED);
+		led_off(BLUE_LED);
+		led_off(RED_LED);
+		led_off(CUSTOM_LED);
+
+		red_on =  green_on = blue_on = custom_led_on = 0;
+	}
+
+	for(int i = 0;  i < iNumParams; i++)
+	{
+		if(strcmp(pcParam[i],"led") == 0)
+		{
+			if(strcmp(pcValue[i],"1") == 0)
+			{
+				led_on(RED_LED);
+				printf("Red Led is On!!\n\r");
+				red_on = 1;
+			}
+
+			else if(strcmp(pcValue[i],"2") == 0)
+			{
+				led_on(BLUE_LED);
+				printf("Blue Led is On!!\n\r");
+				blue_on = 1;
+			}
+
+			else if(strcmp(pcValue[i],"3") == 0)
+			{
+				led_on(GREEN_LED);
+				printf("Green Led is On!!\n\r");
+				green_on = 1;
+			}
+			else if(strcmp(pcValue[i],"4") == 0)
+			{
+				led_on(CUSTOM_LED);
+				printf("Custom Led is On!!\n\r");
+				custom_led_on = 1;
+			}
+		}
+	}
+
+	return "/led_control.shtml";
+}
