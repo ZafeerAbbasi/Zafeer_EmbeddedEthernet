@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"name": "00_BaseProject",
+			"path": "00_BaseProject"
+		},
+		{
+			"name": "01_ClockConfig",
+			"path": "01_ClockConfig"
+		},
+		{
+			"path": "02_LEDConfig"
+		},
+		{
+			"path": "03_UARTConfig"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"stdint.h": "c",
+			"stm32h7xx_hal.h": "c",
+			"stm32h743xx.h": "c",
+			"main.h": "c",
+			"usr01_uart.h": "c"
+		}
+	}
+}

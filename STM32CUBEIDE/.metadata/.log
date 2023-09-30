@@ -442,3 +442,61 @@ java.lang.Exception: Resource '/00_BaseProject/Debug/Middlewares/Third_Party/LwI
 	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:291)
 	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2023-09-26 19:43:51.782 -----------------------------------------------
+eclipse.buildId=Version 1.13.2
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-09-26 19:44:09.441
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-09-26 19:44:09.443
+!MESSAGE Log4j2 initialized with config file C:\Users\zafee\Documents\GitHub\Zafeer_EmbeddedEthernet\STM32CUBEIDE\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-09-26 19:44:17.952
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-09-26 20:01:50.250
+!MESSAGE Indexed '01_Clock_Config' (155 sources, 329 headers) in 17.4 sec: 52,867 declarations; 189,556 references; 11 unresolved inclusions; 6,713 syntax errors; 3,539 unresolved names (1.4%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-09-26 23:59:29.561
+!MESSAGE Indexed 'FreeRTOS_ThreadCreation' (34 sources, 113 headers) in 4.79 sec: 12,463 declarations; 95,578 references; 7 unresolved inclusions; 325 syntax errors; 3,123 unresolved names (2.8%)
+!SESSION 2023-09-27 19:12:24.709 -----------------------------------------------
+eclipse.buildId=Version 1.13.2
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  C:\Users\zafee\STM32Cube\Example\PWR_VOS0_480MHZ\STM32CubeIDE\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\zafee\STM32Cube\Example\PWR_VOS0_480MHZ\STM32CubeIDE\.project
+
+!ENTRY org.eclipse.core.resources 2 10035 2023-09-27 19:12:30.059
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-09-27 19:12:50.014
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-09-27 19:12:50.028
+!MESSAGE Log4j2 initialized with config file C:\Users\zafee\Documents\GitHub\Zafeer_EmbeddedEthernet\STM32CUBEIDE\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-09-27 19:13:04.183
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-09-27 19:13:10.816
+!MESSAGE Indexed 'PWR_VOS0_480MHZ' (22 sources, 89 headers) in 6.09 sec: 8,628 declarations; 64,365 references; 5 unresolved inclusions; 297 syntax errors; 5,833 unresolved names (7.4%)
+!SESSION 2023-09-28 17:57:00.523 -----------------------------------------------
+eclipse.buildId=Version 1.13.2
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-09-28 17:57:20.149
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-09-28 17:57:20.161
+!MESSAGE Log4j2 initialized with config file C:\Users\zafee\Documents\GitHub\Zafeer_EmbeddedEthernet\STM32CUBEIDE\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-09-28 17:57:37.203
+!MESSAGE Started RMI Server, listening on port 41337
