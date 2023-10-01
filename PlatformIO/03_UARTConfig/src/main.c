@@ -5,7 +5,7 @@
 # Created Date: Tuesday, September 26th 2023, 7:58:59 pm                       #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Saturday, September 30th 2023, 2:26:02 pm                     #
+# Last Modified: Saturday, September 30th 2023, 4:08:02 pm                     #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -20,6 +20,7 @@
 #include <stdint.h>
 #include "main.h"
 #include "usr00_led.h"
+#include "usr01_uart.h"
 #include "lwip.h"
 
 /*##############################################################################################################################################*/
@@ -58,7 +59,7 @@ int main(void)
 
 	LED_Init( );
 
-	USART_usart3Init( );
+	UART_usart3TXInit( );
 
 	HCLKFreq = HAL_RCC_GetHCLKFreq( );
 	D2PCLK1Freq = HAL_RCC_GetPCLK1Freq( );
@@ -74,7 +75,8 @@ int main(void)
 
 	while(1)
 	{
-
+		printf( "Test from USART3....\n\r" );
+		HAL_Delay( 50 );
 	}
 }
 

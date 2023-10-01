@@ -13,6 +13,9 @@
 		},
 		{
 			"path": "03_UARTConfig"
+		},
+		{
+			"path": "04_ADCConfig"
 		}
 	],
 	"settings": {
