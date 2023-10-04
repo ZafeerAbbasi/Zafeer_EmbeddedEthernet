@@ -1,4 +1,19 @@
+/*
+# ##############################################################################
+# File: adc.c                                                                  #
+# Project: Src                                                                 #
+# Created Date: Saturday, September 23rd 2023, 11:15:17 pm                     #
+# Author: Zafeer Abbasi                                                        #
+# ----------------------------------------------                               #
+# Last Modified: Sunday, October 1st 2023, 5:05:25 pm                          #
+# Modified By: Zafeer Abbasi                                                   #
+# ----------------------------------------------                               #
+# Copyright (c) 2023 Zafeer.A                                                  #
+# ----------------------------------------------                               #
+# HISTORY:                                                                     #
+ */
 #include "adc.h"
+#include "main.h"
 
 #define SENSOR_PIN		(1U<<4)
 #define SENSOR_PORT		GPIOA
