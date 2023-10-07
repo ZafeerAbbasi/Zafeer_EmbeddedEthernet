@@ -5,7 +5,7 @@
 # Created Date: Tuesday, September 26th 2023, 2:23:01 am                       #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Friday, October 6th 2023, 10:17:28 pm                         #
+# Last Modified: Saturday, October 7th 2023, 2:57:01 am                        #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -159,7 +159,7 @@ static void ETH_LowLevelInit( struct netif *netif )
         netif->flags |= NETIF_FLAG_LINK_UP;
     }
 
-    
+    HAL_ETH_ReadPHYRegister
     
     
 }
