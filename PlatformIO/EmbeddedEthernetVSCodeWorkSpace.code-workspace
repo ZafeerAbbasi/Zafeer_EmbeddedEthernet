@@ -1,7 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "05_ETH_GPIOInit"
+			"path": "NUCLEO-F746ZG/06_ETH_LowLevelInit"
 		}
 	],
 	"settings": {
@@ -13,7 +13,8 @@
 			"usr01_uart.h": "c",
 			"usr02_adc.h": "c",
 			"lwip.h": "c",
-			"ethernetif.h": "c"
+			"ethernetif.h": "c",
+			"stm32h7xx_it.h": "c"
 		}
 	}
 }
