@@ -1,3 +1,17 @@
+/*
+# ##############################################################################
+# File: ethernetif.c                                                           #
+# Project: Target                                                              #
+# Created Date: Saturday, September 23rd 2023, 11:15:29 pm                     #
+# Author: Zafeer Abbasi                                                        #
+# ----------------------------------------------                               #
+# Last Modified: Sunday, October 8th 2023, 12:01:51 am                         #
+# Modified By: Zafeer Abbasi                                                   #
+# ----------------------------------------------                               #
+# Copyright (c) 2023 Zafeer.A                                                  #
+# ----------------------------------------------                               #
+# HISTORY:                                                                     #
+ */
 #include "ethernetif.h"
 
 #include "lwip/opt.h"
@@ -8,7 +22,6 @@
 #include "netif/ethernet.h"
 #include "lwip/memp.h"
 #include <string.h>
-
 
 
 __ALIGN_BEGIN  ETH_DMADescTypeDef DMARxDscrTab[ETH_RXBUFNB]  __ALIGN_END;

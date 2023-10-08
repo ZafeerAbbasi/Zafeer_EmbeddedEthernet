@@ -5,7 +5,7 @@
 # Created Date: Tuesday, September 26th 2023, 2:23:01 am                       #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Saturday, October 7th 2023, 2:57:01 am                        #
+# Last Modified: Sunday, October 8th 2023, 12:48:27 am                         #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -27,11 +27,15 @@
 #include "netif/etharp.h" 
 #include "netif/ethernet.h"
 #include "lwip/memp.h"
+#include <string.h>
 
 /*##############################################################################################################################################*/
 /*FUNCTION DECLARATIONS_________________________________________________________________________________________________________________________*/
 /*##############################################################################################################################################*/
 
+static void ETH_LowLevelInit( struct netif *netif );
+static err_t ETH_LowLevelTxOutput( struct netif *netif, struct pbuf *LWIPPackBuff );
+static void ETH_ProcessError( void );
 
 
 /*##############################################################################################################################################*/
@@ -125,7 +129,11 @@ void HAL_ETH_MspInit(ETH_HandleTypeDef *heth)
     }
 }
 
-
+/**
+ * @brief Low Level ETH Init
+ * 
+ * @param netif LWIP Network Interface Struct
+ */
 static void ETH_LowLevelInit( struct netif *netif )
 {
     uint32_t regValue = 0;
@@ -159,7 +167,31 @@ static void ETH_LowLevelInit( struct netif *netif )
         netif->flags |= NETIF_FLAG_LINK_UP;
     }
 
-    HAL_ETH_ReadPHYRegister
+    /*Descriptor Init*/
+    HAL_ETH_DMATxDescListInit( &heth, &DMATxDscrTab, &Tx_Buff[ 0 ][ 0 ], ETH_TXBUFNB );
+    HAL_ETH_DMARxDescListInit( &heth, &DMARxDscrTab, &Rx_Buff[ 0 ][ 0 ], ETH_RXBUFNB );
+
+    /*MAC Address*/
+    netif->hwaddr_len = ETH_HWADDR_LEN;
+    netif->hwaddr[ 0 ] = MACAddr[ 0 ];
+    netif->hwaddr[ 1 ] = MACAddr[ 1 ];
+    netif->hwaddr[ 2 ] = MACAddr[ 2 ];
+    netif->hwaddr[ 3 ] = MACAddr[ 3 ];
+    netif->hwaddr[ 4 ] = MACAddr[ 4 ];
+    netif->hwaddr[ 5 ] = MACAddr[ 5 ];
+
+    /*Set MTU ( Maximum Transfer Unit )*/
+    netif->mtu = 1500;
+
+    /*Enable broadcasting and ARP*/
+    netif->flags |= NETIF_FLAG_BROADCAST | NETIF_FLAG_ETHARP;
     
-    
+    /*Start MAC and DMA Transmission and reception*/
+    HAL_ETH_Start( &heth );
+
+    /*Enable Link Down interrupt*/
+    HAL_ETH_ReadPHYRegister( &heth, PHY_ISFR, &regValue );
+    regValue |= PHY_ISFR_INT4;
+    HAL_ETH_WritePHYRegister( &heth, PHY_ISFR, regValue );
+    HAL_ETH_ReadPHYRegister( &heth, PHY_ISFR, regValue );
 }

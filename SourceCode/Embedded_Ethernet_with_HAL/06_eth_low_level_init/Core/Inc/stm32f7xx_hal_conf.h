@@ -1,3 +1,17 @@
+/*
+# ##############################################################################
+# File: stm32f7xx_hal_conf.h                                                   #
+# Project: Inc                                                                 #
+# Created Date: Saturday, September 23rd 2023, 11:15:24 pm                     #
+# Author: Zafeer Abbasi                                                        #
+# ----------------------------------------------                               #
+# Last Modified: Saturday, October 7th 2023, 7:47:01 pm                        #
+# Modified By: Zafeer Abbasi                                                   #
+# ----------------------------------------------                               #
+# Copyright (c) 2023 Zafeer.A                                                  #
+# ----------------------------------------------                               #
+# HISTORY:                                                                     #
+ */
 #ifndef __STM32F7xx_HAL_CONF_H
 #define __STM32F7xx_HAL_CONF_H
 
@@ -112,7 +126,7 @@
 #define PHY_SPEED_STATUS                ((uint16_t)0x0002U)  /*!< PHY Speed mask                                  */
 #define PHY_DUPLEX_STATUS               ((uint16_t)0x0004U)  /*!< PHY Duplex mask                                 */
 
-#define PHY_ISFR                        ((uint16_t)0x001DU)    /*!< PHY Interrupt Source Flag register Offset   */
+#define PHY_ISFR                        ((uint16_t)0x001DU)  /*!< PHY Interrupt Source Flag register Offset   */
 #define PHY_ISFR_INT4                   ((uint16_t)0x000BU)  /*!< PHY Link down inturrupt       */
 
 

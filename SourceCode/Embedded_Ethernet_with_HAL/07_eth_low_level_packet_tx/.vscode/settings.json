@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "ethernetif.h": "c",
+        "stm32f7xx_hal_def.h": "c"
+    }
+}

@@ -1,4 +1,17 @@
-/**
+/*
+# ##############################################################################
+# File: stm32f7xx_hal_eth.c                                                    #
+# Project: Src                                                                 #
+# Created Date: Saturday, September 23rd 2023, 11:15:29 pm                     #
+# Author: Zafeer Abbasi                                                        #
+# ----------------------------------------------                               #
+# Last Modified: Sunday, October 8th 2023, 12:02:35 am                         #
+# Modified By: Zafeer Abbasi                                                   #
+# ----------------------------------------------                               #
+# Copyright (c) 2023 Zafeer.A                                                  #
+# ----------------------------------------------                               #
+# HISTORY:                                                                     #
+ *//**
   ******************************************************************************
   * @file    stm32f7xx_hal_eth.c
   * @author  MCD Application Team
@@ -139,7 +152,6 @@
   */
 
 #ifdef HAL_ETH_MODULE_ENABLED
-#if defined (ETH)
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
