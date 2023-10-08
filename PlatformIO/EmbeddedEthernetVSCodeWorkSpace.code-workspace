@@ -1,7 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "NUCLEO-F746ZG/08_ETH_LowLevel_PACKET_RX"
+			"path": "NUCLEO-F746ZG/11_ETH_ETHIF_UpdateConfig"
 		}
 	],
 	"settings": {
@@ -14,7 +14,11 @@
 			"usr02_adc.h": "c",
 			"lwip.h": "c",
 			"ethernetif.h": "c",
-			"stm32h7xx_it.h": "c"
+			"stm32h7xx_it.h": "c",
+			"opt.h": "c",
+			"stm32f7xx_hal.h": "c",
+			"stm32f7xx.h": "c",
+			"stm32f746xx.h": "c"
 		}
 	}
 }

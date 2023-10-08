@@ -5,7 +5,7 @@
 # Created Date: Tuesday, September 26th 2023, 2:23:01 am                       #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Sunday, October 8th 2023, 2:18:38 am                          #
+# Last Modified: Sunday, October 8th 2023, 5:01:52 am                          #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -341,16 +341,48 @@ static struct pbuf *ETH_LowLevelRxInput( struct netif *netif )
                         ( ETH_RX_BUF_SIZE - buffOffSet ) );
 
                 /*Point to the next descriptor*/
-                DMARxDesc = (ETH_DMADescTypeDef *)( DMARxDesc->Buffer2NextDescAddr );
+                DMARxDesc = ( ETH_DMADescTypeDef *)( DMARxDesc->Buffer2NextDescAddr );
 
-                /*Update*/
-                
+                /*Update variables*/
+                RxBuffAddr          = ( uint8_t * )( DMARxDesc->Buffer1Addr );
+                bytesLeftToCopy     = bytesLeftToCopy - ( ETH_RX_BUF_SIZE - buffOffSet );
+                payLoadOffSet       = payLoadOffSet - ( ETH_RX_BUF_SIZE - buffOffSet );
             }
+
+            /*Remaing bytes are less than size of ETH TX BUF SIZE, so copy rest of bytes*/
+            memcpy( ( uint8_t * )( ( uint8_t * )packBuffTmplt->payload + payLoadOffSet ),
+                    ( uint8_t * )( ( uint8_t * )RxBuffAddr + buffOffSet ),
+                    ( bytesLeftToCopy) );
+
+            buffOffSet = buffOffSet + bytesLeftToCopy;
         }
     }
-    
-    
-    
+
+    /*Point to the first descriptor*/
+    DMARxDesc = heth.RxFrameInfos.FSRxDesc;
+
+    /*Set OWN Bit in RX Descriptors ( Handing it back to DMA Engine )*/
+    for( int i = 0; i < heth.RxFrameInfos.SegCount; i++ )
+    {
+        DMARxDesc->Status |= ETH_DMARXDESC_OWN;
+        DMARxDesc = ( ETH_DMADescTypeDef * )( DMARxDesc->Buffer2NextDescAddr );
+    }
+
+    /*Clear segment count ( Segment Count = Number of RX Descriptors )*/
+    heth.RxFrameInfos.SegCount = 0;
+
+    /*Check if RX Buffer unavailable flag is SET
+    If SET, RESET bit and resume reception*/
+    if( ( heth.Instance->DMASR & ETH_DMASR_RBUS ) != ( uint32_t )( RESET ) )
+    {
+        /*Clear RBUS Flag*/
+        heth.Instance->DMASR = ETH_DMASR_RBUS;
+
+        /*Resume Reception*/
+        heth.Instance->DMARPDR = 0;
+    }
+
+    return packBuff;
 }
 
 static void ETH_ProcessError( void )
