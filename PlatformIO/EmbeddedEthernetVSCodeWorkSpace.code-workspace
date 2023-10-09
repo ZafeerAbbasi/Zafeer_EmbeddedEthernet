@@ -1,7 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "NUCLEO-F746ZG/11_ETH_ETHIF_UpdateConfig"
+			"path": "NUCLEO-F746ZG/12_LwIP_LIP_Init"
 		}
 	],
 	"settings": {
@@ -18,7 +18,9 @@
 			"opt.h": "c",
 			"stm32f7xx_hal.h": "c",
 			"stm32f7xx.h": "c",
-			"stm32f746xx.h": "c"
+			"stm32f746xx.h": "c",
+			"dhcp.h": "c",
+			"mem.h": "c"
 		}
 	}
 }
