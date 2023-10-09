@@ -5,7 +5,7 @@
 # Created Date: Tuesday, September 26th 2023, 2:23:01 am                       #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Sunday, October 8th 2023, 8:56:38 am                          #
+# Last Modified: Monday, October 9th 2023, 12:15:20 am                         #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -429,6 +429,10 @@ static struct pbuf *ETH_LowLevelRxInput( struct netif *netif )
     return packBuff;
 }
 
+/**
+ * @brief Process Error ( UnderFlow Error )
+ * 
+ */
 static void ETH_ProcessError( void )
 {
     
@@ -461,3 +465,101 @@ u32_t sys_now( void )
 {
   return HAL_GetTick( );
 }
+
+/**
+ * @brief This is called whenever the link is changed, it then updates the config to 
+ * the new changes
+ * 
+ * @param netif LWIP Network Interface Struct
+ */
+void ETH_EthernetIFUpdateConfig( struct netif *netif )
+{
+    __IO uint32_t tickStart = 0;
+    uint32_t regVal         = 0;
+
+    /*Check if Link is up*/
+    if( netif_is_link_up( netif ) )
+    {
+        /*Link is up, check if auto-negotiation is enabled*/
+        if( heth.Init.AutoNegotiation != ETH_AUTONEGOTIATION_DISABLE )
+        {
+            /*Autonegotiation is disabled, so enable it*/
+            HAL_ETH_WritePHYRegister( &heth, PHY_BCR, PHY_AUTONEGOTIATION );
+
+            /*Get current tick value*/
+            tickStart = HAL_GetTick( );
+
+            /*Wait for Auto-negotiation to complete*/
+            do
+            {
+                HAL_ETH_ReadPHYRegister( &heth, PHY_BSR, &regVal );
+                if( ( HAL_GetTick( ) - tickStart) > 1000 )
+                {
+                    /*Set Mac speed and Duplex mode to PHY*/
+                    HAL_ETH_WritePHYRegister( &heth, PHY_BCR, 
+                                            ( uint16_t )( heth.Init.DuplexMode >> 3 ) | 
+                                            ( uint16_t )( heth.Init.Speed >> 1 ) );                       
+                } 
+                
+            }while( ( regVal & PHY_AUTONEGO_COMPLETE ) != PHY_AUTONEGO_COMPLETE );
+
+            /*Read the results of the auto-negotation*/
+            if( ( regVal & PHY_DUPLEX_STATUS ) != ( uint32_t )( RESET ) )
+            {
+                /*Set ETH Duplex to full-duplex*/
+                heth.Init.DuplexMode = ETH_MODE_FULLDUPLEX;
+            }
+            else
+            {
+                /*Set ETH Duplex to half-duplex*/
+                heth.Init.DuplexMode = ETH_MODE_HALFDUPLEX;
+            }
+
+            if( ( regVal & PHY_SPEED_STATUS )  )
+            {
+                /*Set ETH speed 10M*/
+                heth.Init.Speed = ETH_SPEED_10M;
+            }
+            else
+            {
+                /*Set ETH Speed 100M*/
+                heth.Init.Speed = ETH_SPEED_100M;
+            }
+        }
+        else
+        {
+            /*Set MAC Speed and Duplex mode to PHY*/
+            HAL_ETH_WritePHYRegister( &heth, PHY_BCR, 
+                                    ( uint16_t )( heth.Init.DuplexMode >> 3 ) |
+                                    ( uint16_t )( heth.Init.Speed >> 1 ) );
+        }
+
+        /*Re-configure ETH MAC*/
+        HAL_ETH_ConfigMAC( &heth, ( ETH_MACInitTypeDef * )NULL );
+        
+        /*Restart MAC Interface*/
+        HAL_ETH_Start( &heth );
+    }
+    else
+    {
+        /*Stop MAC*/
+        HAL_ETH_Stop( &heth );
+    }
+
+    /*Notify changes*/
+    notifyConnChanged( netif );
+
+}
+
+__weak void notifyConnChanged( struct netif *netif )
+{
+    //Do something, eg. Blink LED if link changed...
+}
+
+
+
+
+
+
+
+

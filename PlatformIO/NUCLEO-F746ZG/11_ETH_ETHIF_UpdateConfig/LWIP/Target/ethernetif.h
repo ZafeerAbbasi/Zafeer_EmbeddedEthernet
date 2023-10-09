@@ -5,7 +5,7 @@
 # Created Date: Tuesday, September 26th 2023, 2:22:56 am                       #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Sunday, October 8th 2023, 8:55:54 am                          #
+# Last Modified: Monday, October 9th 2023, 12:15:46 am                         #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -28,6 +28,8 @@
 
 err_t ETH_EthernetIFInit( struct netif * netif );
 void ETH_EthernetIFInput( struct netif *netif );
+void ETH_EthernetIFUpdateConfig( struct netif *netif );
+void notifyConnChanged( struct netif *netif );
 u32_t sys_now(void);
 
 /*##############################################################################################################################################*/

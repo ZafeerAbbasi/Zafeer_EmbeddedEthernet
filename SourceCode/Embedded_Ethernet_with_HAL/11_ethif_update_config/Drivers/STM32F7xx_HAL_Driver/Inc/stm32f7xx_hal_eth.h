@@ -1,3 +1,17 @@
+/*
+# ##############################################################################
+# File: stm32f7xx_hal_eth.h                                                    #
+# Project: Inc                                                                 #
+# Created Date: Saturday, September 23rd 2023, 11:15:40 pm                     #
+# Author: Zafeer Abbasi                                                        #
+# ----------------------------------------------                               #
+# Last Modified: Sunday, October 8th 2023, 11:28:07 pm                         #
+# Modified By: Zafeer Abbasi                                                   #
+# ----------------------------------------------                               #
+# Copyright (c) 2023 Zafeer.A                                                  #
+# ----------------------------------------------                               #
+# HISTORY:                                                                     #
+ */
 /**
   ******************************************************************************
   * @file    stm32f7xx_hal_eth.h
@@ -28,7 +42,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f7xx_hal_def.h"
 
-#if defined (ETH)
 
 /** @addtogroup STM32F7xx_HAL_Driver
   * @{
