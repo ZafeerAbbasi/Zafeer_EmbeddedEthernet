@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "ethernetif.h": "c",
+        "timeouts.h": "c"
+    }
+}

@@ -1,7 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "NUCLEO-F746ZG/12_LwIP_LIP_Init"
+			"path": "NUCLEO-F746ZG/13_LwIP_LinkChange"
 		}
 	],
 	"settings": {
@@ -20,7 +20,15 @@
 			"stm32f7xx.h": "c",
 			"stm32f746xx.h": "c",
 			"dhcp.h": "c",
-			"mem.h": "c"
+			"mem.h": "c",
+			"usr00_led.h": "c",
+			"timeouts.h": "c",
+			"debug.h": "c",
+			"lwipopts.h": "c",
+			"ethip6.h": "c",
+			"sys.h": "c",
+			"etharp.h": "c",
+			"memp.h": "c"
 		}
 	}
 }

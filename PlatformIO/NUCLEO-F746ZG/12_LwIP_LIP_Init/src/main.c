@@ -5,7 +5,7 @@
 # Created Date: Tuesday, September 26th 2023, 7:58:59 pm                       #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Sunday, October 8th 2023, 6:05:24 am                          #
+# Last Modified: Tuesday, October 10th 2023, 6:01:00 pm                        #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -24,8 +24,6 @@
 #include "usr02_adc.h"
 #include "lwip.h"
 
-/*Add FloatingPoint Support*/
-asm(".global _printf_float");
 
 /*##############################################################################################################################################*/
 /*FUNCTION DECLARATIONS_________________________________________________________________________________________________________________________*/
@@ -154,3 +152,6 @@ void ERROR_errorHandler( void )
 {
 	while( 1 ) { }
 }
+
+
+asm(".global _printf_float");

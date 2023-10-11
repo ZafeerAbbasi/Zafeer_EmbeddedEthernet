@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "stdint.h": "c",
+        "stm32h7xx_hal.h": "c",
+        "stm32h743xx.h": "c",
+        "main.h": "c",
+        "stm32h7xx_it.h": "c",
+        "ethernetif.h": "c",
+        "lan8742.h": "c",
+        "lwip.h": "c",
+        "usr02_adc.h": "c"
+    }
+}
