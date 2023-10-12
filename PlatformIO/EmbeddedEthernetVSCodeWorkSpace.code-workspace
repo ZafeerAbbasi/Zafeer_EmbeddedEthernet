@@ -1,7 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "NUCLEO-F746ZG/13_LwIP_LinkChange"
+			"path": "NUCLEO-F746ZG/16_LwIP_HTTP_SSI"
 		}
 	],
 	"settings": {
@@ -28,7 +28,8 @@
 			"ethip6.h": "c",
 			"sys.h": "c",
 			"etharp.h": "c",
-			"memp.h": "c"
+			"memp.h": "c",
+			"httpd.h": "c"
 		}
 	}
 }
