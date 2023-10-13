@@ -1,7 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "NUCLEO-F746ZG/16_LwIP_HTTP_SSI"
+			"path": "NUCLEO-F746ZG/20_LwIP_HTTP_SSI_CGI_LED_Control"
 		}
 	],
 	"settings": {
