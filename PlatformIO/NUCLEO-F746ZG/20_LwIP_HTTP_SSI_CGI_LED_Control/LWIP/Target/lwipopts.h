@@ -5,7 +5,7 @@
 # Created Date: Tuesday, September 26th 2023, 2:23:15 am                       #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Thursday, October 12th 2023, 2:42:38 am                       #
+# Last Modified: Friday, October 13th 2023, 4:51:21 am                         #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -46,6 +46,7 @@
 #define     LWIP_DHCP                       1
 #define	    LWIP_HTTPD						1
 #define		LWIP_HTTPD_SSI					1
+#define		LWIP_HTTPD_CGI					1
 
 #define		SYS_LIGHTWEIGHT_PROT			0
 

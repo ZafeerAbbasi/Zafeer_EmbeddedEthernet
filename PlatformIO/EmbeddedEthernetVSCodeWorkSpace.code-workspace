@@ -29,7 +29,8 @@
 			"sys.h": "c",
 			"etharp.h": "c",
 			"memp.h": "c",
-			"httpd.h": "c"
+			"httpd.h": "c",
+			"usr05_cgi_process.h": "c"
 		}
 	}
 }

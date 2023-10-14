@@ -5,7 +5,7 @@
 # Created Date: Thursday, October 12th 2023, 2:37:20 am                        #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Thursday, October 12th 2023, 10:35:48 pm                      #
+# Last Modified: Friday, October 13th 2023, 5:57:36 am                         #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -55,7 +55,7 @@ extern ADC_HandleTypeDef hADC1;
 /*FUNCTIONS_____________________________________________________________________________________________________________________________________*/
 /*##############################################################################################################################################*/
 
-uint16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen)
+uint16_t SSI_SSIHandler(int iIndex, char *pcInsert, int iInsertLen)
 {
 	switch( iIndex )
 	{

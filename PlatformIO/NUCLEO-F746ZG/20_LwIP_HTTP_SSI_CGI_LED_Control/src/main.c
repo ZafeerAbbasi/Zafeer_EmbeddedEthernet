@@ -5,7 +5,7 @@
 # Created Date: Tuesday, September 26th 2023, 7:58:59 pm                       #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Thursday, October 12th 2023, 11:45:56 pm                      #
+# Last Modified: Friday, October 13th 2023, 6:31:23 am                         #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -24,6 +24,7 @@
 #include "usr01_uart.h"
 #include "usr02_adc.h"
 #include "usr03_ssi_process.h"
+#include "usr05_cgi_process.h"
 #include "lwip.h"
 
 /*##############################################################################################################################################*/
@@ -53,6 +54,9 @@ uint32_t sensorVal;
 extern ADC_HandleTypeDef hADC1;
 extern struct netif gNetif;
 extern char const ** tags;
+extern const tCGI CGI_LED;
+extern const tCGI CGI_SLIDER;
+extern tCGI ARR_CGI[ NUM_OF_CGI ];
 
 
 /*##############################################################################################################################################*/
@@ -78,7 +82,11 @@ int main(void)
 
 	LWIP_libInit( );
 	httpd_init( );
-	http_set_ssi_handler( ssi_handler, ( const char ** )tags, NUM_OF_TAGS );
+	http_set_ssi_handler( SSI_SSIHandler, ( const char ** )tags, NUM_OF_TAGS );
+	
+	ARR_CGI[ 0 ] = CGI_LED;
+	ARR_CGI[ 1 ] = CGI_SLIDER;
+	http_set_cgi_handlers( ARR_CGI, NUM_OF_CGI );
 	
 	HCLKFreq = HAL_RCC_GetHCLKFreq( );
 	D2PCLK1Freq = HAL_RCC_GetPCLK1Freq( );
@@ -95,7 +103,6 @@ int main(void)
 	{
 		LWIP_process( );
 		HAL_ADC_Start( &hADC1 );
-		printf("IP address from DHCP :  %s\r\n",ip4addr_ntoa(&gNetif.ip_addr));
 	}
 }
 

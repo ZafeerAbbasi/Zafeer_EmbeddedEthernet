@@ -1,3 +1,17 @@
+<!--
+#############################################################################  #
+File: time.shtml                                                               #
+Project: fs                                                                    #
+Created Date: Friday, October 13th 2023, 3:36:12 am                            #
+Author: Zafeer Abbasi                                                          #
+----------------------------------------------                                 #
+Last Modified: Friday, October 13th 2023, 3:48:30 am                           #
+Modified By: Zafeer Abbasi                                                     #
+----------------------------------------------                                 #
+Copyright (c) 2023 Zafeer.A                                                    #
+----------------------------------------------                                 #
+HISTORY:                                                                       #
+-->
 <!DOCTYPE HTML><html>
 <head>
   <title>EmbeddedExpertIO Remote Hardware Monitor</title>
@@ -75,7 +89,6 @@
   <div class="topnav">
     <h1>REMOTE TIMER SERVER </h1>
   </div>
-  <img class="image" src="timer.png" height= "200" width= "200" border="0" alt="EmbeddedExpertIO" title="EmbeddedExpertIO logo">
 
   <div class="content">
     <div class="card">
