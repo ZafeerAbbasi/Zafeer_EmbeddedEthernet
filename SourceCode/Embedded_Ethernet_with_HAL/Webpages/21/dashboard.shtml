@@ -1,3 +1,17 @@
+<!--
+#############################################################################  #
+File: dashboard.shtml                                                          #
+Project: fs                                                                    #
+Created Date: Friday, October 13th 2023, 3:36:12 am                            #
+Author: Zafeer Abbasi                                                          #
+----------------------------------------------                                 #
+Last Modified: Friday, October 13th 2023, 3:49:08 am                           #
+Modified By: Zafeer Abbasi                                                     #
+----------------------------------------------                                 #
+Copyright (c) 2023 Zafeer.A                                                    #
+----------------------------------------------                                 #
+HISTORY:                                                                       #
+-->
 <!DOCTYPE HTML><html>
 <head>
   <title>EmbeddedExpertIO Remote Hardware Monitor</title>
@@ -75,7 +89,6 @@
   <div class="topnav">
     <h1>REMOTE HARDWARE DASHBOARD </h1>
   </div>
-  <img class="image" src="push-button.png" height= "90" width= "90" border="0" alt="EmbeddedExpertIO" title="EmbeddedExpertIO logo">
   <div class="content">
     <div class="card">
       <h2>BUTTON STATE</h2>
@@ -83,7 +96,6 @@
 
     </div>
   </div>
-  <img class="image" src="sensor.png" height= "90" width= "90" border="0" alt="EmbeddedExpertIO" title="EmbeddedExpertIO logo">
   <div class="content">
     <div class="card">
       <h2>SENSOR VALUE</h2>
@@ -91,7 +103,6 @@
 
     </div>
   </div>
-   <img class="image" src="timer.png" height= "90" width= "90" border="0" alt="EmbeddedExpertIO" title="EmbeddedExpertIO logo">
   <div class="content">
     <div class="card">
       <h2>CURRENT TIME</h2>
