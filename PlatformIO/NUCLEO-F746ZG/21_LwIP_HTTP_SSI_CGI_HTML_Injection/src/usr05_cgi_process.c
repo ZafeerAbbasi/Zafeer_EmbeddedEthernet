@@ -5,7 +5,7 @@
 # Created Date: Friday, October 13th 2023, 3:51:04 am                          #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Saturday, October 14th 2023, 6:31:29 am                       #
+# Last Modified: Sunday, October 15th 2023, 4:06:28 pm                         #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -36,6 +36,8 @@
 const tCGI CGI_LED = { "/leds.cgi", CGI_ledCGIHandler };
 const tCGI CGI_SLIDER = { "/slider.cgi", CGI_sliderHandler };
 tCGI ARR_CGI[ NUM_OF_CGI ];
+
+extern TIM_HandleTypeDef hTimer;
 
 /*##############################################################################################################################################*/
 /*DEFINES_______________________________________________________________________________________________________________________________________*/
@@ -69,43 +71,40 @@ const char *CGI_ledCGIHandler( int iIndex, int iNumParams, char *pcParam[ ], cha
             if( strcmp( pcValue[ i ], "1" ) == 0 )
             {
                 
-                LED_activateLED( GREEN_LED );
-                printf( "Green LED is ON \r\n" );
+                LED_toggleLED( RED_LED ); 
             
             }
             else if( strcmp( pcValue[ i ], "2" ) == 0 )
             {
 
-                LED_activateLED( BLUE_LED );
-                printf( "Blue LED is ON \r\n" );
+                LED_toggleLED( BLUE_LED );
 
             }
             else if( strcmp( pcValue[ i ], "3" ) == 0 )
             {
                 
-                LED_activateLED( RED_LED );
-                printf( "Red LED is ON \r\n" );
+                LED_toggleLED( GREEN_LED );
             
-            }
-            else if( strcmp( pcValue[ i ], "4" ) == 0 )
-            {
-
-                printf( "Custom LED Selected \r\n" );  
-                              
             }
         }
     }
 
-    return "/led_control.html";
+    isGreenLedOn = HAL_GPIO_ReadPin( GREEN_LED_PORT, GREEN_LED );
+    isBlueLedOn = HAL_GPIO_ReadPin( BLUE_LED_PORT, BLUE_LED );
+    isRedLedOn = HAL_GPIO_ReadPin( RED_LED_PORT, RED_LED );
+
+    return "/led_control.shtml";
 }
 
 
 const char *CGI_sliderHandler( int iIndex, int iNumParams, char *pcParam[ ], char *pcValue[ ] )
 {
     // Directly process the slider value since we know we only have one parameter
-        int value = atoi(pcValue[0]);
+        value = atoi(pcValue[0]);
         printf("Slider Value: %d\r\n", value );
-    return "/led_control.html";
+        int dutyCycle = (hTimer.Init.Period * value ) / 100;
+        __HAL_TIM_SET_COMPARE( &hTimer, TIM_CHANNEL_1, dutyCycle );
+    return "/led_control.shtml";
 }
 
 

@@ -5,7 +5,7 @@ Project: fs                                                                    #
 Created Date: Friday, October 13th 2023, 3:36:12 am                            #
 Author: Zafeer Abbasi                                                          #
 ----------------------------------------------                                 #
-Last Modified: Saturday, October 14th 2023, 8:21:54 am                         #
+Last Modified: Sunday, October 15th 2023, 4:12:01 pm                           #
 Modified By: Zafeer Abbasi                                                     #
 ----------------------------------------------                                 #
 Copyright (c) 2023 Zafeer.A                                                    #
@@ -16,6 +16,7 @@ HISTORY:                                                                       #
 <head>
   <title>Remote Hardware Monitor</title>
   <meta http-equiv="refresh" content ="1">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
   <link rel="icon" href="data:,">
   <style>
   html {

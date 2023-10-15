@@ -5,7 +5,7 @@ Project: fs                                                                    #
 Created Date: Friday, October 13th 2023, 3:46:30 am                            #
 Author: Zafeer Abbasi                                                          #
 ----------------------------------------------                                 #
-Last Modified: Saturday, October 14th 2023, 6:27:54 am                         #
+Last Modified: Sunday, October 15th 2023, 2:04:12 pm                           #
 Modified By: Zafeer Abbasi                                                     #
 ----------------------------------------------                                 #
 Copyright (c) 2023 Zafeer.A                                                    #
@@ -158,7 +158,6 @@ HISTORY:                                                                       #
 			<td><!--#RLED--><h2>LED1</h2><br></td>
    			<td><!--#BLED--><h2>LED2</h2><br></td>
 			<td><!--#GLED--><h2>LED3</h2><br></td>
-   			<td><!--#LED4--><h2>LED4</h2><br></td>
 	   </tr>
       </table>	
 	  			<input value ="Send" type="submit" class="btn">
@@ -168,10 +167,10 @@ HISTORY:                                                                       #
   </div>
        <div class="content">
         <div class="card">
-          <h2>SERVO POSITION</h2>
+          <h2>MOTOR SPEED</h2>
             <form id="sliderForm">
-              <input type="range" id="slider" name="sliderValue" min="0" max="180" step="1" value="0" oninput="sendCGIRequest(this.value)">
-                <span id="currentValue">0</span> DEGREES <!-- Display current value -->
+              <input type="range" id="slider" name="sliderValue" min="0" max="100" step="1" value="0" oninput="sendCGIRequest(this.value)">
+                <span id="currentValue">0</span> &#37; <!-- Display current value -->
             </form>
         </div>
     </div>
@@ -179,14 +178,26 @@ HISTORY:                                                                       #
     <a class="exitbtn" href="index.html">EXIT</a><br>
 
     <script>
-        function sendCGIRequest(value) {
-            var xhr = new XMLHttpRequest();  // Create a new XMLHttpRequest object
-            xhr.open("GET", "/slider.cgi?value=" + value, true);  // Prepare the CGI request URL
-            xhr.send();  // Send the request
-
-            // Update displayed value
-            document.getElementById("currentValue").innerText = value;
+      window.onload = function() {
+        // Retrieve the stored value on page load
+        var storedValue = localStorage.getItem("sliderValue");
+        if (storedValue) {
+            document.getElementById("slider").value = storedValue;
+            document.getElementById("currentValue").innerText = storedValue;
         }
+    }
+    
+    function sendCGIRequest(value) {
+        var xhr = new XMLHttpRequest();  // Create a new XMLHttpRequest object
+        xhr.open("GET", "/slider.cgi?value=" + value, true);  // Prepare the CGI request URL
+        xhr.send();  // Send the request
+    
+        // Update displayed value
+        document.getElementById("currentValue").innerText = value;
+    
+        // Store the current slider value in local storage
+        localStorage.setItem("sliderValue", value);
+    }
     </script>
 
 </body>

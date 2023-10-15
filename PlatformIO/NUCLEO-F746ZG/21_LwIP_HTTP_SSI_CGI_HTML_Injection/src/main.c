@@ -5,7 +5,7 @@
 # Created Date: Tuesday, September 26th 2023, 7:58:59 pm                       #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Sunday, October 15th 2023, 5:26:27 am                         #
+# Last Modified: Sunday, October 15th 2023, 2:12:56 pm                         #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -77,36 +77,35 @@ int main(void)
 	HAL_Init( );
 	CLOCK_sysClockConfig( );
 
-	// LED_Init( );
-	// UART_usart3TXInit( );
-	// ADC_ADC12INP3PA6Init( );
+	LED_Init( );
+	UART_usart3TXInit( );
+	ADC_ADC12INP3PA6Init( );
 	TIM_Timer5Init( );
 
-	// LWIP_libInit( );
-	// httpd_init( );
-	// http_set_ssi_handler( SSI_SSIHandler, ( const char ** )tags, NUM_OF_TAGS );
+	LWIP_libInit( );
+	httpd_init( );
+	http_set_ssi_handler( SSI_SSIHandler, ( const char ** )tags, NUM_OF_TAGS );
 	
-	// ARR_CGI[ 0 ] = CGI_LED;
-	// ARR_CGI[ 1 ] = CGI_SLIDER;
-	// http_set_cgi_handlers( ARR_CGI, NUM_OF_CGI );
+	ARR_CGI[ 0 ] = CGI_LED;
+	ARR_CGI[ 1 ] = CGI_SLIDER;
+	http_set_cgi_handlers( ARR_CGI, NUM_OF_CGI );
 	
-	// HCLKFreq = HAL_RCC_GetHCLKFreq( );
-	// D2PCLK1Freq = HAL_RCC_GetPCLK1Freq( );
-	// D2PCLK2Freq = HAL_RCC_GetPCLK2Freq( );
-	// SYSCLKFreq = HAL_RCC_GetSysClockFreq( );
+	HCLKFreq = HAL_RCC_GetHCLKFreq( );
+	D2PCLK1Freq = HAL_RCC_GetPCLK1Freq( );
+	D2PCLK2Freq = HAL_RCC_GetPCLK2Freq( );
+	SYSCLKFreq = HAL_RCC_GetSysClockFreq( );
 	
 
-	// LED_activateLED( GREEN_LED );
-	// LED_activateLED( BLUE_LED );
-	// LED_activateLED( RED_LED );
+	LED_deactivateLED( GREEN_LED );
+	LED_deactivateLED( BLUE_LED );
+	LED_deactivateLED( RED_LED );
 	
-	// notifyConnChanged( &gNetif );
+	notifyConnChanged( &gNetif );
 	while(1)
 	{
-		// LWIP_process( );
-		// sensorVal = ADC_getMCUTemp( );
-		// printf("PCLK1 Freq = %ld \r\n", D2PCLK1Freq );
-		//printf( "MCU Temperature: %0.1f Degrees Celsius \r\n", sensorVal );
+		LWIP_process( );
+		sensorVal = ADC_getMCUTemp( );
+		// printf("IP Address from DHCP:  %s\r\n", ip4addr_ntoa( &gNetif.ip_addr ) );
 	}
 }
 

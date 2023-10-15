@@ -5,7 +5,7 @@
 # Created Date: Sunday, October 15th 2023, 2:54:41 am                          #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Sunday, October 15th 2023, 5:48:13 am                         #
+# Last Modified: Sunday, October 15th 2023, 12:01:23 pm                        #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -54,11 +54,10 @@ void TIM_Timer5Init( void )
     __HAL_RCC_TIM5_CLK_ENABLE( );
 
     GPIO_InitTypeDef timGpio = { 0 };
-    timGpio.Pin = GPIO_PIN_3;
+    timGpio.Pin = GPIO_PIN_0;
     timGpio.Speed = GPIO_SPEED_FREQ_LOW;
     timGpio.Mode = GPIO_MODE_AF_PP;
     timGpio.Alternate = GPIO_AF2_TIM5;
-    timGpio.Pull = GPIO_PULLDOWN;
 
     HAL_GPIO_Init( GPIOA, &timGpio );
     
@@ -66,7 +65,7 @@ void TIM_Timer5Init( void )
     hTimer.Instance = TIM5;
     hTimer.Init.Prescaler = 9998;
     hTimer.Init.CounterMode = TIM_COUNTERMODE_UP;
-    hTimer.Init.Period = 21;
+    hTimer.Init.Period = 20;
     if( HAL_TIM_PWM_Init( &hTimer ) != HAL_OK )
     {
         while( 1 );
@@ -76,14 +75,14 @@ void TIM_Timer5Init( void )
     memset(&sConfig,0,sizeof(sConfig));
     
     sConfig.OCMode = TIM_OCMODE_PWM1;
-    sConfig.Pulse = (hTimer.Init.Period * 90 ) / 100;
+    sConfig.Pulse = (hTimer.Init.Period * 50 ) / 100;
     sConfig.OCPolarity = TIM_OCPOLARITY_HIGH;
-    if( HAL_TIM_PWM_ConfigChannel( &hTimer, &sConfig, TIM_CHANNEL_4 ) != HAL_OK )
+    if( HAL_TIM_PWM_ConfigChannel( &hTimer, &sConfig, TIM_CHANNEL_1 ) != HAL_OK )
     {
         while( 1 );
     }
 
-    if ( HAL_TIM_PWM_Start( &hTimer, TIM_CHANNEL_4 ) != HAL_OK )
+    if ( HAL_TIM_PWM_Start( &hTimer, TIM_CHANNEL_1 ) != HAL_OK )
 	{
 		while( 1 );
 	}

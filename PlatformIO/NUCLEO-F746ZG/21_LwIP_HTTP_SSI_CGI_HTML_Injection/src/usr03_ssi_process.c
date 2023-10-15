@@ -5,7 +5,7 @@
 # Created Date: Thursday, October 12th 2023, 2:37:20 am                        #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Saturday, October 14th 2023, 8:37:07 am                       #
+# Last Modified: Sunday, October 15th 2023, 1:24:02 pm                         #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -23,7 +23,9 @@
 #include "main.h"
 #include "usr04_button.h"
 #include "usr02_adc.h"
+#include "usr00_led.h"
 #include <stdbool.h>
+#include "usr05_cgi_process.h"
 
 /*##############################################################################################################################################*/
 /*FUNCTION DECLARATIONS_________________________________________________________________________________________________________________________*/
@@ -35,7 +37,7 @@
 /*GLOBALS_______________________________________________________________________________________________________________________________________*/
 /*##############################################################################################################################################*/
 
-char const * ssi_tags[] = {"TIME", "SENSOR", "BUTTON" };
+char const * ssi_tags[] = {"TIME","SENSOR","BUTTON","RLED","BLED","GLED", "VALUE"};
 char const ** tags =  ssi_tags;
 
 /*##############################################################################################################################################*/
@@ -78,6 +80,53 @@ uint16_t SSI_SSIHandler(int iIndex, char *pcInsert, int iInsertLen)
 			return strlen( pcInsert );
 			break;
 
+		case 3:
+			if (isRedLedOn ==  GPIO_PIN_SET)
+			{
+				sprintf(pcInsert,"<input value=\"1\" name=\"led\" class=\"largerCheckbox\" type=\"checkbox\" checked>");
+				return strlen(pcInsert);
+			}
+			else
+			{
+				sprintf(pcInsert,"<input value=\"1\" name=\"led\" class=\"largerCheckbox\"  type=\"checkbox\" unchecked>");
+				return strlen(pcInsert);
+
+			}
+			break;
+
+		case 4:
+			if(isBlueLedOn == GPIO_PIN_SET)
+			{
+				sprintf(pcInsert,"<input value=\"2\" name=\"led\" class=\"largerCheckbox\" type=\"checkbox\" checked>");
+				return strlen(pcInsert);
+			}
+			else
+			{
+				sprintf(pcInsert,"<input value=\"2\" name=\"led\" class=\"largerCheckbox\"  type=\"checkbox\" unchecked>");
+				return strlen(pcInsert);
+
+			}
+			break;
+
+		case 5:
+			if(isGreenLedOn == GPIO_PIN_SET)
+			{
+				sprintf(pcInsert,"<input value=\"3\" name=\"led\" class=\"largerCheckbox\" type=\"checkbox\" checked>");
+				return strlen(pcInsert);
+			}
+			else
+			{
+				sprintf(pcInsert,"<input value=\"3\" name=\"led\" class=\"largerCheckbox\"  type=\"checkbox\" unchecked>");
+				return strlen(pcInsert);
+
+			}
+			break;
+		
+		case 6:
+			sprintf( pcInsert, "%d", value );
+			return strlen( pcInsert );
+			break;
+		
 		default:
 			break;	
 	}

@@ -5,7 +5,7 @@
 # Created Date: Tuesday, September 26th 2023, 7:58:59 pm                       #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Friday, October 13th 2023, 6:31:23 am                         #
+# Last Modified: Sunday, October 15th 2023, 12:43:49 pm                        #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -103,6 +103,7 @@ int main(void)
 	{
 		LWIP_process( );
 		HAL_ADC_Start( &hADC1 );
+		printf("IP Address from DHCP:  %s\r\n", ip4addr_ntoa( &gNetif.ip_addr.addr ) );
 	}
 }
 

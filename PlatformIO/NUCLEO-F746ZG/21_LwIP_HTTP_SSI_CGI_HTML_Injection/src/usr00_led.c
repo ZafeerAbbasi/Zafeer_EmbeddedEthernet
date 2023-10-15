@@ -5,7 +5,7 @@
 # Created Date: Thursday, September 28th 2023, 8:31:44 pm                      #
 # Author: Zafeer Abbasi                                                        #
 # ----------------------------------------------                               #
-# Last Modified: Saturday, October 14th 2023, 7:30:18 am                       #
+# Last Modified: Sunday, October 15th 2023, 1:08:32 pm                         #
 # Modified By: Zafeer Abbasi                                                   #
 # ----------------------------------------------                               #
 # Copyright (c) 2023 Zafeer.A                                                  #
@@ -110,6 +110,28 @@ void LED_deactivateLED( uint32_t LED )
             HAL_GPIO_WritePin( RED_LED_PORT, RED_LED, GPIO_PIN_RESET );
             break;
     }
+}
+
+void LED_toggleLED( uint32_t LED )
+{
+    switch( LED )
+    {
+        case GREEN_LED:
+            HAL_GPIO_TogglePin( GREEN_LED_PORT, GREEN_LED );
+            break;
+        
+        case BLUE_LED:
+            HAL_GPIO_TogglePin( BLUE_LED_PORT, BLUE_LED );
+            break;
+        
+        case RED_LED:
+            HAL_GPIO_TogglePin( RED_LED_PORT, RED_LED );
+            break;
+    }
+
+    isGreenLedOn = HAL_GPIO_ReadPin( GREEN_LED_PORT, GREEN_LED );
+    isBlueLedOn = HAL_GPIO_ReadPin( BLUE_LED_PORT, BLUE_LED );
+    isRedLedOn = HAL_GPIO_ReadPin( RED_LED_PORT, RED_LED );
 }
 
 /*##############################################################################################################################################*/
